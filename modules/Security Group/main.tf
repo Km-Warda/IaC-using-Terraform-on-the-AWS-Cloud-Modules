@@ -10,7 +10,7 @@ resource "aws_security_group" "security_group" {
       cidr_blocks = ingress.value.cidr_blocks
     }
   }
- # Egress rules
+ #Egress rules
   dynamic "egress" {
     for_each = var.sg_egress_rule
     content {
@@ -20,7 +20,5 @@ resource "aws_security_group" "security_group" {
       cidr_blocks = egress.value.cidr_blocks
     }
   }
-  tags = {
-    Name = var.sg_tags
-  }
+  tags = var.tags
 }

@@ -10,3 +10,6 @@ output "security_group_id" {
 output "instance_id" {
   value = module.ec2_instance.instance_id
 }
+output "route_table_id" {
+  value       = module.Routing_Tables.route_table_id
+}

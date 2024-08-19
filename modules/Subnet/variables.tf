@@ -10,9 +10,8 @@ variable "availability_zone" {
     type = string
     default = "us-west-2a"
 }
-variable "subnet_tags" {
-    type = string
-    default = "subnet"
+variable "tags" {
+  type        = map(string)
 }
 
 # True for public subnet creation, False for private subnet creation

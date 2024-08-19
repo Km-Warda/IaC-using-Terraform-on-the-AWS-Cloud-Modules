@@ -8,9 +8,8 @@ variable "vpc_dns_hostnames" {
 }
 variable "vpc_cidr_block" {
     type = string
-    default = "10.0.0.0/16"
 }
-variable "vpc_tags" {
-    type = string
-    default = "vpc"
+
+variable "tags" {
+  type        = map(string)
 }
