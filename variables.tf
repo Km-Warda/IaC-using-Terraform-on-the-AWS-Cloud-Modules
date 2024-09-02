@@ -43,10 +43,13 @@ variable "primary_subnet_tags" {
 
 #Routing Rules
 variable "Public_routes" {
-  type = map(object)
+  type = map(object({
+    cidr_block = string
+  }))
   default = {
-    cidr_block = "10.0.0.0/16"
-    gateway_id = module.vpc.vpc_id
+    route1 = {
+      cidr_block = "10.0.0.0/16"
+    }
   }
 }
 
@@ -61,10 +64,16 @@ variable "custom_sg_ingress_rule" {
   }))
   description = "ingress rules for security group"
   default = {
-    example_rule = {
+    SSH_rule = {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+    HTTP_rule ={
+      from_port   = 80
+      to_port     = 80
+      protocol    = "http"
       cidr_blocks = ["0.0.0.0/0"]
     }
   }

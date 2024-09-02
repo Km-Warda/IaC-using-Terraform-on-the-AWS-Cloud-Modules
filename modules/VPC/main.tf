@@ -7,5 +7,5 @@ resource "aws_vpc" "vpc" {
 
 # This module creates an IGW
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.vpc
+  vpc_id = aws_vpc.vpc.id
   }

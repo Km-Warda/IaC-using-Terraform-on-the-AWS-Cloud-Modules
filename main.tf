@@ -19,10 +19,11 @@ module "Routing_Tables" {
   source = "./modules/Route Tables"
   vpc_id = module.vpc.vpc_id
   routes = var.Public_routes
+  gateway_id = module.vpc.vpc_id
 }
 
 module "Routing_Tables_Association" {
-  source    = "./modules/Route Tables Association"
+  source    = "./modules/Routing Tables Association"
   subnet_id = module.public_subnet.subnet_id
   rt_id     = module.Routing_Tables.route_table_id
 }
